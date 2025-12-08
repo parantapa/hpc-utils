@@ -2,7 +2,7 @@
 
 #include <utility>
 
-#include <hpc-utils/allocator.hpp>
+#include <hpc_utils/allocator.hpp>
 
 namespace hpc_utils {
 
