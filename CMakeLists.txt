@@ -60,23 +60,10 @@ PUBLIC
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/hpc-utils-version.cmake"
-    COMPATIBILITY ExactVersion
-)
-
 install(
     TARGETS hpc-utils
     EXPORT hpc-utils-targets
     FILE_SET HEADERS
-)
-
-install(
-    FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/hpc-utils-config.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/hpc-utils-version.cmake"
-    DESTINATION
-        "${CMAKE_INSTALL_LIBDIR}/cmake/hpc-utils"
 )
 
 install(
@@ -85,4 +72,17 @@ install(
         "${CMAKE_INSTALL_LIBDIR}/cmake/hpc-utils"
     NAMESPACE hpc-utils::
     FILE hpc-utils-targets.cmake
+)
+
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/hpc-utils-version.cmake"
+    COMPATIBILITY ExactVersion
+)
+
+install(
+    FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/hpc-utils-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/hpc-utils-version.cmake"
+    DESTINATION
+        "${CMAKE_INSTALL_LIBDIR}/cmake/hpc-utils"
 )
