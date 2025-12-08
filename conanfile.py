@@ -27,6 +27,18 @@ class HpcUtilsRecipe(ConanFile):
 
     def requirements(self):
         self.requires("fmt/12.1.0")
+        self.requires("parallel-hashmap/2.0.0")
+        self.requires("random123/1.14.0")
+        self.requires(
+            "arrow/22.0.0",
+            options=dict(
+                with_csv=True,
+                with_lz4=True,
+                with_snappy=True,
+                with_zstd=True,
+            ),
+        )
+        self.requires("hdf5/1.14.6")
 
     def generate(self):
         toolchain = CMakeToolchain(self)
