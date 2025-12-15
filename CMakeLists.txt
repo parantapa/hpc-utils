@@ -11,9 +11,9 @@ find_package(OpenMP REQUIRED)
 find_package(fmt REQUIRED)
 find_package(phmap REQUIRED)
 
-find_package(random123 REQUIRED)
-find_package(Arrow REQUIRED)
-find_package(HDF5 REQUIRED)
+# find_package(random123 REQUIRED)
+# find_package(Arrow REQUIRED)
+# find_package(HDF5 REQUIRED)
 
 add_library(hpc-utils src/allocator.cpp)
 target_sources(hpc-utils
@@ -36,10 +36,10 @@ PUBLIC
     fmt::fmt
     phmap
 
-    random123::random123
-    arrow::arrow
-    hdf5::hdf5
-    hdf5::hdf5_cpp
+    # random123::random123
+    # arrow::arrow
+    # hdf5::hdf5
+    # hdf5::hdf5_cpp
 )
 target_compile_features(hpc-utils
 PUBLIC

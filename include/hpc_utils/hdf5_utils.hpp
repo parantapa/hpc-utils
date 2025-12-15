@@ -55,12 +55,12 @@ inline const H5::PredType& h5_type<double>() {
     return H5::PredType::NATIVE_DOUBLE;
 }
 
-template <typename T, typename Group>
-void read_dataset(const Group& group, const std::string& name, StaticArray<T>& arr) {
-    std::array<hsize_t, 1> dims = {hsize_t(arr.size())};
+template <typename Vec, typename Group>
+void read_dataset(const Group& group, const std::string& name, Vec& arr) {
+    std::array<hsize_t, 1> dims = {std::ssize(arr)};
 
     auto dataspace = H5::DataSpace(dims.size(), dims.data());
-    auto datatype = h5_type<T>();
+    auto datatype = h5_type<typename Vec::value_type>();
     auto dataset = group.openDataSet(name);
 
     dataset.read(arr.data(), datatype, dataspace);
@@ -88,12 +88,12 @@ T read_attribute(const Group& group, const std::string& name) {
     return attr;
 }
 
-template <typename T, typename Group>
-void write_dataset(StaticArray<T>& arr, Group& group, const std::string& name) {
-    std::array<hsize_t, 1> dims = {hsize_t(arr.size())};
+template <typename Vec, typename Group>
+void write_dataset(Vec& arr, Group& group, const std::string& name) {
+    std::array<hsize_t, 1> dims = {std::ssize(arr)};
 
     auto dataspace = H5::DataSpace(dims.size(), dims.data());
-    auto datatype = h5_type<T>();
+    auto datatype = h5_type<typename Vec::value_type>();
     auto dataset = group.createDataSet(name, datatype, dataspace);
     dataset.write(arr.data(), datatype);
 }

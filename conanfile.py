@@ -5,7 +5,7 @@ from conan.tools.cmake import cmake_layout, CMakeDeps, CMakeToolchain, CMake
 
 class HpcUtilsRecipe(ConanFile):
     name = "hpc-utils"
-    version = "0.1.0"
+    version = "0.1.1"
 
     license = "MIT"
     author = "Parantapa Bhattacharya <pb@parantapa.net>"

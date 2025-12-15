@@ -6,7 +6,6 @@
 
 #include <arrow/api.h>
 #include <arrow/io/api.h>
-#include <memory>
 #include <parquet/arrow/reader.h>
 
 namespace hpc_utils {
@@ -154,7 +153,6 @@ std::vector<Type> parquet_read_col(const std::unique_ptr<parquet::arrow::FileRea
 
     auto col_index = schema->GetFieldIndex(col_name);
     if (col_index < 0) [[unlikely]] {
-        // panic("'{}' column not found", col_name);
         throw std::runtime_error(fmt::format("Column {} not found; schema=\n{}.", col_name, schema->ToString()));
     }
     auto field = schema->field(col_index);

@@ -1,9 +1,10 @@
 #pragma once
 
-#include <hpc_utils/allocator.hpp>
-
 #include <vector>
 #include <parallel_hashmap/phmap.h>
+
+#include <hpc_utils/allocator.hpp>
+#include <hpc_utils/static_array.hpp>
 
 namespace hpc_utils {
 template <typename Type>
