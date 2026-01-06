@@ -39,6 +39,7 @@ class HpcUtilsRecipe(ConanFile):
             ),
         )
         self.requires("hdf5/1.14.6")
+        self.requires("boost/1.89.0", override=True)
 
     def generate(self):
         toolchain = CMakeToolchain(self)
