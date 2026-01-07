@@ -5,7 +5,7 @@ from conan.tools.cmake import cmake_layout, CMakeDeps, CMakeToolchain, CMake
 
 class HpcUtilsRecipe(ConanFile):
     name = "hpc-utils"
-    version = "0.1.1"
+    version = "main"
 
     license = "MIT"
     author = "Parantapa Bhattacharya <pb@parantapa.net>"
@@ -43,7 +43,6 @@ class HpcUtilsRecipe(ConanFile):
 
     def generate(self):
         toolchain = CMakeToolchain(self)
-        toolchain.user_presets_path = False
         toolchain.generate()
 
         cmake = CMakeDeps(self)
