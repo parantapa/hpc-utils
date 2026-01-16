@@ -1,0 +1,6 @@
+{
+    project: "hpc-utils",
+    remotes: {
+        rivanna: "rivanna:hpc-utils",
+    }
+}
